@@ -1,0 +1,30 @@
+{
+  "name": "student-attendance-management-system",
+  "version": "1.0.0",
+  "description": "Student Attendance Management System for B.Voc Software Development - Semester V (FSWD-II)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test test/api.test.js",
+    "cli": "node cli.js"
+  },
+  "keywords": [
+    "attendance",
+    "express",
+    "mongodb",
+    "mongoose",
+    "yargs",
+    "bvoc",
+    "fswd"
+  ],
+  "author": "Karan Kumar (Roll: 24107030)",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5",
+    "yargs": "^17.7.2"
+  }
+}

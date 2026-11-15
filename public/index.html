@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Attendance Management System | B.Voc Software Development</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="brand-logo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+          </svg>
+        </div>
+        <div class="brand-info">
+          <h2>EduAttend</h2>
+          <span>Attendance Portal</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="#dashboard" class="nav-item active" data-target="dashboard-view">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="#students" class="nav-item" data-target="students-view">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          <span>Student Management</span>
+        </a>
+
+        <a href="#faculty" class="nav-item" data-target="faculty-view">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Faculty Directory</span>
+        </a>
+
+        <a href="#mark-attendance" class="nav-item" data-target="mark-attendance-view">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 11l3 3L22 4"></path>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+          </svg>
+          <span>Mark Attendance</span>
+        </a>
+
+        <a href="#attendance-records" class="nav-item" data-target="records-view">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <span>Attendance Records</span>
+        </a>
+
+        <a href="#audit-logs" class="nav-item" data-target="logs-view">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="4 17 10 11 4 5"></polyline>
+            <line x1="12" y1="19" x2="20" y2="19"></line>
+          </svg>
+          <span>Audit Logs (fs)</span>
+        </a>
+
+        <a href="#devops-docs" class="nav-item" data-target="devops-view">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span>Architecture & DevOps</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="student-profile-badge">
+          <div class="student-avatar">KK</div>
+          <div class="student-details">
+            <span class="student-name">Karan Kumar</span>
+            <span class="student-meta">Roll: 24107030 | Sem V</span>
+            <span class="student-sub">B.Voc (Software Development)</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN WRAPPER -->
+    <div class="main-wrapper">
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="mobile-menu-btn" id="mobile-toggle" aria-label="Toggle navigation">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <div class="topbar-title">
+            <h1 id="page-title">Dashboard Overview</h1>
+            <p class="subtitle">DSC: Full Stack Web Development – II | Academic Year 2026</p>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Database Status Pill -->
+          <div class="status-indicator" id="db-status-pill" title="Database Connection Status">
+            <span class="status-dot"></span>
+            <span class="status-label" id="db-status-label">Checking DB...</span>
+          </div>
+
+          <div class="clock-display" id="clock-display">--:--:--</div>
+        </div>
+      </header>
+
+      <!-- CONTENT SECTIONS -->
+      <main class="content-body">
+        
+        <!-- ================= SECTION 1: DASHBOARD ================= -->
+        <section id="dashboard-view" class="view-section active">
+          <!-- KPI Statistics Cards -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon icon-students">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <div class="stat-content">
+                <span class="stat-title">Total Students</span>
+                <h3 class="stat-value" id="stat-total-students">0</h3>
+                <span class="stat-helper">Enrolled in Department</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon icon-faculty">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <div class="stat-content">
+                <span class="stat-title">Total Faculty</span>
+                <h3 class="stat-value" id="stat-total-faculty">0</h3>
+                <span class="stat-helper">Active Teaching Staff</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon icon-attendance">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                </svg>
+              </div>
+              <div class="stat-content">
+                <span class="stat-title">Attendance Entries</span>
+                <h3 class="stat-value" id="stat-total-records">0</h3>
+                <span class="stat-helper">Logged in Database & FS</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon icon-percentage">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 6v6l4 2"></path>
+                </svg>
+              </div>
+              <div class="stat-content">
+                <span class="stat-title">Campus Attendance</span>
+                <h3 class="stat-value" id="stat-overall-percentage">0%</h3>
+                <span class="stat-helper" id="stat-attendance-breakdown">0 Present / 0 Absent</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Action Buttons Banner -->
+          <div class="action-banner">
+            <div class="banner-text">
+              <h3>Quick Actions</h3>
+              <p>Execute common attendance workflows with a single click</p>
+            </div>
+            <div class="banner-buttons">
+              <button class="btn btn-primary" onclick="window.navigateView('mark-attendance-view')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"></path></svg>
+                Mark Attendance
+              </button>
+              <button class="btn btn-secondary" onclick="window.openModal('add-student-modal')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="19" y1="8" x2="19" y2="14"></line><line x1="22" y1="11" x2="16" y2="11"></line></svg>
+                Add Student
+              </button>
+              <button class="btn btn-secondary" onclick="window.openModal('add-faculty-modal')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="19" y1="11" x2="19" y2="11"></line></svg>
+                Add Faculty
+              </button>
+              <button class="btn btn-outline" onclick="window.navigateView('logs-view')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+                View Audit Trail
+              </button>
+            </div>
+          </div>
+
+          <!-- Dashboard Grid: Recent Attendance & Summary -->
+          <div class="dashboard-split-grid">
+            <!-- Recent Activity Card -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <div>
+                  <h3 class="panel-title">Recent Attendance Activity</h3>
+                  <p class="panel-subtitle">Latest attendance submissions logged across all subjects</p>
+                </div>
+                <button class="btn btn-sm btn-outline" onclick="window.loadDashboardStats()">Refresh</button>
+              </div>
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Student</th>
+                      <th>Roll No</th>
+                      <th>Subject</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="recent-attendance-tbody">
+                    <tr><td colspan="5" class="text-center py-4">Loading recent activity...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Student Eligibility Spotlight -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <div>
+                  <h3 class="panel-title">Attendance Threshold Monitor</h3>
+                  <p class="panel-subtitle">UGC 75% Examination Eligibility Rule Check</p>
+                </div>
+                <button class="btn btn-sm btn-outline" onclick="window.navigateView('records-view')">View All</button>
+              </div>
+              <div id="eligibility-spotlight-list" class="spotlight-list">
+                <!-- Dynamically injected -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= SECTION 2: STUDENT MANAGEMENT ================= -->
+        <section id="students-view" class="view-section">
+          <div class="panel-card">
+            <div class="panel-header flex-between">
+              <div>
+                <h3 class="panel-title">Enrolled Students</h3>
+                <p class="panel-subtitle">Manage student registration, profile details, and examination eligibility</p>
+              </div>
+              <div class="panel-actions">
+                <div class="search-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                  <input type="text" id="student-search-input" placeholder="Search by name, roll, course...">
+                </div>
+                <button class="btn btn-primary" onclick="window.openModal('add-student-modal')">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  Add Student
+                </button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Roll Number</th>
+                    <th>Full Name</th>
+                    <th>Course</th>
+                    <th>Semester</th>
+                    <th>Email Address</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="students-table-body">
+                  <tr><td colspan="6" class="text-center py-4">Loading students directory...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= SECTION 3: FACULTY MANAGEMENT ================= -->
+        <section id="faculty-view" class="view-section">
+          <div class="panel-card">
+            <div class="panel-header flex-between">
+              <div>
+                <h3 class="panel-title">Faculty Directory</h3>
+                <p class="panel-subtitle">Active instructors and academic staff authorized to mark attendance</p>
+              </div>
+              <div class="panel-actions">
+                <button class="btn btn-primary" onclick="window.openModal('add-faculty-modal')">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  Add Faculty Member
+                </button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Faculty ID</th>
+                    <th>Faculty Name</th>
+                    <th>Department</th>
+                    <th>Email Address</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="faculty-table-body">
+                  <tr><td colspan="5" class="text-center py-4">Loading faculty directory...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= SECTION 4: MARK ATTENDANCE ================= -->
+        <section id="mark-attendance-view" class="view-section">
+          <div class="attendance-form-container">
+            <div class="panel-card max-w-xl mx-auto">
+              <div class="panel-header border-bottom">
+                <div>
+                  <h3 class="panel-title">Mark Daily Attendance</h3>
+                  <p class="panel-subtitle">Record student attendance with duplicate prevention and audit logging</p>
+                </div>
+              </div>
+
+              <!-- Duplicate warning alert container -->
+              <div id="mark-alert" class="alert-box d-none"></div>
+
+              <form id="mark-attendance-form" class="app-form">
+                <div class="form-group">
+                  <label for="att-student-select">Select Student <span class="required">*</span></label>
+                  <select id="att-student-select" required>
+                    <option value="">-- Choose Student from Directory --</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="att-subject-select">Subject / Course Module <span class="required">*</span></label>
+                  <div class="input-with-datalist">
+                    <input list="subject-options" id="att-subject-select" placeholder="Select or type subject name" required>
+                    <datalist id="subject-options">
+                      <option value="Full Stack Web Development - II">
+                      <option value="Cloud Computing & DevOps">
+                      <option value="Mobile Application Development">
+                      <option value="Database Management Systems">
+                      <option value="Software Engineering & Agile">
+                    </datalist>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-6">
+                    <label for="att-date-input">Attendance Date <span class="required">*</span></label>
+                    <input type="date" id="att-date-input" required>
+                  </div>
+
+                  <div class="form-group col-6">
+                    <label for="att-faculty-select">Marked By (Faculty) <span class="required">*</span></label>
+                    <select id="att-faculty-select" required>
+                      <option value="FAC101">Dr. Rajesh Khanna (FAC101)</option>
+                      <option value="FAC102">Prof. Sunita Rao (FAC102)</option>
+                      <option value="FAC103">Dr. Vikram Seth (FAC103)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Attendance Status <span class="required">*</span></label>
+                  <div class="status-radio-group">
+                    <label class="status-radio-card present">
+                      <input type="radio" name="attendanceStatus" value="Present" checked>
+                      <div class="radio-content">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span>Present</span>
+                      </div>
+                    </label>
+
+                    <label class="status-radio-card absent">
+                      <input type="radio" name="attendanceStatus" value="Absent">
+                      <div class="radio-content">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        <span>Absent</span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-footer">
+                  <button type="submit" class="btn btn-primary btn-block btn-lg" id="btn-submit-attendance">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                    Confirm & Mark Attendance
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= SECTION 5: ATTENDANCE RECORDS & SUMMARY ================= -->
+        <section id="records-view" class="view-section">
+          <!-- View Toggle Tabs -->
+          <div class="tab-navigation">
+            <button class="tab-btn active" data-tab="tab-summary">Student Attendance Summary & Eligibility</button>
+            <button class="tab-btn" data-tab="tab-history">All Attendance History Records</button>
+          </div>
+
+          <!-- TAB 1: SUMMARY TABLE -->
+          <div id="tab-summary" class="tab-content active">
+            <div class="panel-card">
+              <div class="panel-header flex-between">
+                <div>
+                  <h3 class="panel-title">Cumulative Attendance Percentages</h3>
+                  <p class="panel-subtitle">Calculated dynamically: (Present Classes ÷ Total Classes) × 100</p>
+                </div>
+                <div class="summary-legend">
+                  <span class="legend-badge eligible"><span class="badge-dot"></span> ≥ 75% Eligible</span>
+                  <span class="legend-badge shortage"><span class="badge-dot"></span> &lt; 75% Shortage</span>
+                </div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Roll Number</th>
+                      <th>Student Name</th>
+                      <th>Course & Semester</th>
+                      <th>Total Classes</th>
+                      <th>Attended</th>
+                      <th>Absent</th>
+                      <th>Percentage</th>
+                      <th>Exam Eligibility</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="summary-table-body">
+                    <tr><td colspan="9" class="text-center py-4">Calculating attendance metrics...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: DETAILED RECORDS -->
+          <div id="tab-history" class="tab-content">
+            <div class="panel-card">
+              <div class="panel-header flex-between flex-wrap gap-3">
+                <div>
+                  <h3 class="panel-title">Individual Attendance Log Entries</h3>
+                  <p class="panel-subtitle">Detailed breakdown with real-time filtering</p>
+                </div>
+                <!-- Filter Controls -->
+                <div class="filter-controls">
+                  <select id="filter-subject" class="form-control-sm">
+                    <option value="">All Subjects</option>
+                  </select>
+                  <input type="date" id="filter-date" class="form-control-sm">
+                  <button class="btn btn-sm btn-outline" onclick="window.clearAttendanceFilters()">Reset</button>
+                </div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Student Roll</th>
+                      <th>Student Name</th>
+                      <th>Subject</th>
+                      <th>Status</th>
+                      <th>Marked By</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="attendance-records-tbody">
+                    <tr><td colspan="7" class="text-center py-4">Loading records...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= SECTION 6: AUDIT LOGS (fs) ================= -->
+        <section id="logs-view" class="view-section">
+          <div class="panel-card">
+            <div class="panel-header flex-between">
+              <div>
+                <h3 class="panel-title">File System (fs) Audit Trail</h3>
+                <p class="panel-subtitle">Plain-text sequential audit records appended directly to <code>logs/attendance.log</code></p>
+              </div>
+              <div class="panel-actions">
+                <button class="btn btn-sm btn-outline" onclick="window.copyAuditLogs()">Copy Logs</button>
+                <button class="btn btn-sm btn-primary" onclick="window.loadAuditLogs()">Refresh Logs</button>
+              </div>
+            </div>
+
+            <div class="fs-info-alert">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              <div>
+                <strong>Assignment Requirement 6: Node.js File System module (fs)</strong>
+                <p>Every attendance marking action triggers an asynchronous <code>fs.appendFile()</code> call, ensuring an immutable sequential audit record on the server disk independent of database state.</p>
+              </div>
+            </div>
+
+            <div class="terminal-log-viewer">
+              <div class="terminal-header">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+                <span class="terminal-title">logs/attendance.log (Server Host Disk)</span>
+              </div>
+              <pre id="audit-log-terminal" class="terminal-body">Loading audit logs...</pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= SECTION 7: DEVOPS & ARCHITECTURE ================= -->
+        <section id="devops-view" class="view-section">
+          <div class="devops-grid">
+            <!-- Card 1: Node & Express REST API -->
+            <div class="panel-card">
+              <div class="devops-card-header">
+                <span class="tech-badge node">Node.js + Express</span>
+                <h3>Q1. REST Server & Routing</h3>
+              </div>
+              <p>Non-blocking, event-driven web server listening on port 3000. Features modular routing: <code>/api/students</code>, <code>/api/faculty</code>, <code>/api/attendance</code>, and <code>/api/dashboard</code> with centralized JSON error handling and input validation.</p>
+              <div class="code-snippet">
+                <code>app.use(express.json());<br>app.use('/api/attendance', attendanceRoutes);</code>
+              </div>
+            </div>
+
+            <!-- Card 2: MongoDB Atlas & Mongoose -->
+            <div class="panel-card">
+              <div class="devops-card-header">
+                <span class="tech-badge mongo">MongoDB Atlas</span>
+                <h3>Q2. Data Modeling & Queries</h3>
+              </div>
+              <p>Mongoose document schemas for <strong>Student</strong>, <strong>Faculty</strong>, and <strong>Attendance</strong>. Implements compound unique indexing <code>{ studentRollNo: 1, subject: 1, date: 1 }</code> to prevent duplicate records, and MongoDB Aggregation Pipelines to compute percentages.</p>
+              <div class="code-snippet">
+                <code>attendanceSchema.index({ studentRollNo: 1, subject: 1, date: 1 }, { unique: true });</code>
+              </div>
+            </div>
+
+            <!-- Card 3: fs Module & Yargs -->
+            <div class="panel-card">
+              <div class="devops-card-header">
+                <span class="tech-badge fs">fs &amp; Yargs</span>
+                <h3>Q3. Audit Logs &amp; CLI</h3>
+              </div>
+              <p>The built-in <code>fs.appendFile()</code> asynchronously writes timestamped audit lines to <code>logs/attendance.log</code>. The <code>cli.js</code> script uses <strong>Yargs</strong> to parse terminal arguments for adding students, marking attendance, and outputting formatted ASCII reports.</p>
+              <div class="code-snippet">
+                <code>node cli.js stats --roll=24107030<br>node cli.js mark --roll=24107030 --status=Present</code>
+              </div>
+            </div>
+
+            <!-- Card 4: Git, Jenkins & Maven -->
+            <div class="panel-card">
+              <div class="devops-card-header">
+                <span class="tech-badge devops">Git / Jenkins / Maven</span>
+                <h3>Q4. CI/CD &amp; Build Management</h3>
+              </div>
+              <p>Source code versioned with <strong>Git</strong>. Declarative <strong>Jenkinsfile</strong> automates testing (<code>npm test</code>) and image builds. <strong>Maven</strong> is documented as a Java-oriented build tool: npm manages Node dependencies, while Maven handles enterprise integration (e.g. Java ERP authentication microservices).</p>
+              <div class="code-snippet">
+                <code>pipeline { agent any; stages { stage('Test') { steps { sh 'npm test' } } } }</code>
+              </div>
+            </div>
+
+            <!-- Card 5: Docker Containerization -->
+            <div class="panel-card">
+              <div class="devops-card-header">
+                <span class="tech-badge docker">Docker</span>
+                <h3>Q5. Containerization &amp; Ports</h3>
+              </div>
+              <p>Multi-stage lightweight <code>Dockerfile</code> based on <code>node:20-alpine</code>. Port forwarding maps external host port <strong>8080</strong> to internal container port <strong>3000</strong> (<code>-p 8080:3000</code>) via <code>docker-compose.yml</code>.</p>
+              <div class="code-snippet">
+                <code>docker build -t attendance-app .<br>docker run -d -p 8080:3000 attendance-app</code>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ================= MODALS ================= -->
+
+  <!-- Modal 1: Add Student Modal -->
+  <div class="modal-backdrop" id="add-student-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Register New Student</h3>
+        <button class="modal-close" onclick="window.closeModal('add-student-modal')">&times;</button>
+      </div>
+      <form id="add-student-form" class="modal-body">
+        <div class="form-group">
+          <label for="std-roll">Roll Number <span class="required">*</span></label>
+          <input type="text" id="std-roll" placeholder="e.g. 24107036" required>
+        </div>
+        <div class="form-group">
+          <label for="std-name">Full Name <span class="required">*</span></label>
+          <input type="text" id="std-name" placeholder="e.g. Aman Sharma" required>
+        </div>
+        <div class="form-group">
+          <label for="std-course">Course Name <span class="required">*</span></label>
+          <input type="text" id="std-course" value="B.Voc Software Development" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-6">
+            <label for="std-semester">Semester <span class="required">*</span></label>
+            <input type="number" id="std-semester" min="1" max="8" value="5" required>
+          </div>
+          <div class="form-group col-6">
+            <label for="std-email">Email Address <span class="required">*</span></label>
+            <input type="email" id="std-email" placeholder="student@college.edu" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="window.closeModal('add-student-modal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Student</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 2: Add Faculty Modal -->
+  <div class="modal-backdrop" id="add-faculty-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Register Faculty Member</h3>
+        <button class="modal-close" onclick="window.closeModal('add-faculty-modal')">&times;</button>
+      </div>
+      <form id="add-faculty-form" class="modal-body">
+        <div class="form-group">
+          <label for="fac-id">Faculty ID <span class="required">*</span></label>
+          <input type="text" id="fac-id" placeholder="e.g. FAC104" required>
+        </div>
+        <div class="form-group">
+          <label for="fac-name">Faculty Name <span class="required">*</span></label>
+          <input type="text" id="fac-name" placeholder="e.g. Dr. Meenakshi Sundaram" required>
+        </div>
+        <div class="form-group">
+          <label for="fac-dept">Department <span class="required">*</span></label>
+          <input type="text" id="fac-dept" value="Department of Vocation (Software Development)" required>
+        </div>
+        <div class="form-group">
+          <label for="fac-email">Email Address <span class="required">*</span></label>
+          <input type="email" id="fac-email" placeholder="faculty@college.edu" required>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="window.closeModal('add-faculty-modal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Faculty</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 3: Student Attendance History Modal -->
+  <div class="modal-backdrop" id="student-history-modal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="history-modal-student-name">Student Attendance History</h3>
+          <p class="modal-subtitle" id="history-modal-student-meta">Roll Number: --</p>
+        </div>
+        <button class="modal-close" onclick="window.closeModal('student-history-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="history-stats-bar">
+          <div class="h-stat">
+            <span class="label">Total Classes</span>
+            <span class="val" id="hist-total">0</span>
+          </div>
+          <div class="h-stat">
+            <span class="label">Present</span>
+            <span class="val text-success" id="hist-present">0</span>
+          </div>
+          <div class="h-stat">
+            <span class="label">Absent</span>
+            <span class="val text-danger" id="hist-absent">0</span>
+          </div>
+          <div class="h-stat">
+            <span class="label">Percentage</span>
+            <span class="val text-primary" id="hist-percent">0%</span>
+          </div>
+          <div class="h-stat">
+            <span class="label">Eligibility</span>
+            <span class="val" id="hist-eligibility">--</span>
+          </div>
+        </div>
+
+        <div class="table-responsive mt-3">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Subject</th>
+                <th>Status</th>
+                <th>Marked By</th>
+              </tr>
+            </thead>
+            <tbody id="hist-records-tbody">
+              <tr><td colspan="4" class="text-center py-4">Loading history...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="window.closeModal('student-history-modal')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- FRONTEND JAVASCRIPT -->
+  <script src="js/app.js"></script>
+</body>
+</html>

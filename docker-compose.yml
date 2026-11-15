@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  attendance-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: university-attendance-app:latest
+    container_name: university-attendance-app
+    restart: unless-stopped
+    ports:
+      # Port Forwarding: Host Port 8080 mapped to Internal Express Port 3000 (As per Assignment Q5)
+      - "8080:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+      # Secret is loaded dynamically from environment or .env file (NEVER hardcoded)
+      - MONGODB_URI=${MONGODB_URI:-}
+    volumes:
+      # Persist file system audit logs (logs/attendance.log) on host machine
+      - ./logs:/usr/src/app/logs
+      - ./data:/usr/src/app/data
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/api/dashboard/stats"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Optional local MongoDB service (uncomment if you wish to run a self-hosted MongoDB container instead of MongoDB Atlas)
+  # mongodb:
+  #   image: mongo:6.0-alpine
+  #   container_name: attendance-mongodb
+  #   restart: unless-stopped
+  #   ports:
+  #     - "27017:27017"
+  #   volumes:
+  #     - mongo-data:/data/db
+  #   environment:
+  #     - MONGO_INITDB_DATABASE=attendance_db
+
+# volumes:
+#   mongo-data:

@@ -1,0 +1,261 @@
+{
+  "students": [
+    {
+      "_id": "seed_std_1",
+      "rollNo": "24107030",
+      "name": "Karan Kumar",
+      "course": "B.Voc Software Development",
+      "semester": 5,
+      "email": "karan.kumar@college.edu",
+      "createdAt": "2026-11-15T05:01:47.553Z"
+    },
+    {
+      "_id": "seed_std_2",
+      "rollNo": "24107031",
+      "name": "Priya Sharma",
+      "course": "B.Voc Software Development",
+      "semester": 5,
+      "email": "priya.sharma@college.edu",
+      "createdAt": "2026-11-15T05:01:47.556Z"
+    },
+    {
+      "_id": "seed_std_3",
+      "rollNo": "24107032",
+      "name": "Rahul Verma",
+      "course": "B.Voc Software Development",
+      "semester": 5,
+      "email": "rahul.verma@college.edu",
+      "createdAt": "2026-11-15T05:01:47.556Z"
+    },
+    {
+      "_id": "seed_std_4",
+      "rollNo": "24107033",
+      "name": "Ananya Gupta",
+      "course": "B.Voc Software Development",
+      "semester": 5,
+      "email": "ananya.gupta@college.edu",
+      "createdAt": "2026-11-15T05:01:47.556Z"
+    },
+    {
+      "_id": "seed_std_5",
+      "rollNo": "24107034",
+      "name": "Amit Singh",
+      "course": "B.Voc Software Development",
+      "semester": 5,
+      "email": "amit.singh@college.edu",
+      "createdAt": "2026-11-15T05:01:47.556Z"
+    },
+    {
+      "_id": "std_1794718932347",
+      "rollNo": "24107035",
+      "name": "Simran Kaur",
+      "course": "B.Voc Software Development",
+      "semester": 5,
+      "email": "simran.kaur@college.edu",
+      "createdAt": "2026-11-15T05:02:12.347Z"
+    },
+    {
+      "_id": "std_1794718963692",
+      "rollNo": "TEST_1794718963651",
+      "name": "Test Student",
+      "course": "B.Voc Software Development",
+      "semester": 5,
+      "email": "test.1794718963651@college.edu",
+      "createdAt": "2026-11-15T05:02:43.692Z"
+    },
+    {
+      "_id": "std_1794719274569",
+      "rollNo": "TEST_1794719274530",
+      "name": "Test Student",
+      "course": "B.Voc Software Development",
+      "semester": 5,
+      "email": "test.1794719274530@college.edu",
+      "createdAt": "2026-11-15T05:07:54.569Z"
+    },
+    {
+      "_id": "std_1794719290072",
+      "rollNo": "TEST_1794719290039",
+      "name": "Test Student",
+      "course": "B.Voc Software Development",
+      "semester": 5,
+      "email": "test.1794719290039@college.edu",
+      "createdAt": "2026-11-15T05:08:10.072Z"
+    },
+    {
+      "_id": "std_1794720313884",
+      "rollNo": "24107037",
+      "name": "Kush Kumar",
+      "course": "B.Voc Software Development",
+      "semester": 5,
+      "email": "kushking@gmail.com",
+      "createdAt": "2026-11-15T05:25:13.884Z"
+    },
+    {
+      "_id": "std_1794722228002",
+      "rollNo": "TEST_1794722227968",
+      "name": "Test Student",
+      "course": "B.Voc Software Development",
+      "semester": 5,
+      "email": "test.1794722227968@college.edu",
+      "createdAt": "2026-11-15T05:57:08.002Z"
+    }
+  ],
+  "faculty": [
+    {
+      "_id": "seed_fac_1",
+      "facultyId": "FAC101",
+      "name": "Dr. Rajesh Khanna",
+      "department": "Department of Vocation (Software Development)",
+      "email": "r.khanna@college.edu",
+      "createdAt": "2026-11-15T05:01:47.556Z"
+    },
+    {
+      "_id": "seed_fac_2",
+      "facultyId": "FAC102",
+      "name": "Prof. Sunita Rao",
+      "department": "Computer Applications",
+      "email": "s.rao@college.edu",
+      "createdAt": "2026-11-15T05:01:47.556Z"
+    },
+    {
+      "_id": "seed_fac_3",
+      "facultyId": "FAC103",
+      "name": "Dr. Vikram Seth",
+      "department": "Information Technology",
+      "email": "v.seth@college.edu",
+      "createdAt": "2026-11-15T05:01:47.556Z"
+    }
+  ],
+  "attendance": [
+    {
+      "_id": "seed_att_1",
+      "studentRollNo": "24107030",
+      "studentName": "Karan Kumar",
+      "subject": "Full Stack Web Development - II",
+      "date": "2026-11-10",
+      "status": "Present",
+      "markedBy": "FAC101",
+      "createdAt": "2026-11-10T10:00:00.000Z"
+    },
+    {
+      "_id": "seed_att_2",
+      "studentRollNo": "24107030",
+      "studentName": "Karan Kumar",
+      "subject": "Full Stack Web Development - II",
+      "date": "2026-11-11",
+      "status": "Present",
+      "markedBy": "FAC101",
+      "createdAt": "2026-11-11T10:00:00.000Z"
+    },
+    {
+      "_id": "seed_att_3",
+      "studentRollNo": "24107030",
+      "studentName": "Karan Kumar",
+      "subject": "Full Stack Web Development - II",
+      "date": "2026-11-12",
+      "status": "Present",
+      "markedBy": "FAC101",
+      "createdAt": "2026-11-12T10:00:00.000Z"
+    },
+    {
+      "_id": "seed_att_4",
+      "studentRollNo": "24107030",
+      "studentName": "Karan Kumar",
+      "subject": "Cloud Computing & DevOps",
+      "date": "2026-11-13",
+      "status": "Present",
+      "markedBy": "FAC102",
+      "createdAt": "2026-11-13T10:00:00.000Z"
+    },
+    {
+      "_id": "seed_att_5",
+      "studentRollNo": "24107031",
+      "studentName": "Priya Sharma",
+      "subject": "Full Stack Web Development - II",
+      "date": "2026-11-10",
+      "status": "Present",
+      "markedBy": "FAC101",
+      "createdAt": "2026-11-10T10:00:00.000Z"
+    },
+    {
+      "_id": "seed_att_6",
+      "studentRollNo": "24107031",
+      "studentName": "Priya Sharma",
+      "subject": "Full Stack Web Development - II",
+      "date": "2026-11-11",
+      "status": "Absent",
+      "markedBy": "FAC101",
+      "createdAt": "2026-11-11T10:00:00.000Z"
+    },
+    {
+      "_id": "seed_att_7",
+      "studentRollNo": "24107032",
+      "studentName": "Rahul Verma",
+      "subject": "Full Stack Web Development - II",
+      "date": "2026-11-10",
+      "status": "Absent",
+      "markedBy": "FAC101",
+      "createdAt": "2026-11-10T10:00:00.000Z"
+    },
+    {
+      "_id": "seed_att_8",
+      "studentRollNo": "24107033",
+      "studentName": "Ananya Gupta",
+      "subject": "Full Stack Web Development - II",
+      "date": "2026-11-10",
+      "status": "Present",
+      "markedBy": "FAC101",
+      "createdAt": "2026-11-10T10:00:00.000Z"
+    },
+    {
+      "_id": "att_1794718914409",
+      "studentRollNo": "24107034",
+      "studentName": "Amit Singh",
+      "subject": "FSWD-II",
+      "date": "2026-11-15",
+      "status": "Present",
+      "markedBy": "CLI_ADMIN",
+      "createdAt": "2026-11-15T05:01:54.409Z"
+    },
+    {
+      "_id": "att_1794718963726",
+      "studentRollNo": "24107030",
+      "studentName": "Karan Kumar",
+      "subject": "Full Stack Web Development - II",
+      "date": "2026-11-20",
+      "status": "Present",
+      "markedBy": "FAC101",
+      "createdAt": "2026-11-15T05:02:43.726Z"
+    },
+    {
+      "_id": "att_1794719290095",
+      "studentRollNo": "24107030",
+      "studentName": "Karan Kumar",
+      "subject": "Test Subject 670754",
+      "date": "2099-12-15",
+      "status": "Present",
+      "markedBy": "FAC101",
+      "createdAt": "2026-11-15T05:08:10.095Z"
+    },
+    {
+      "_id": "att_1794720350822",
+      "studentRollNo": "24107030",
+      "studentName": "Karan Kumar",
+      "subject": "Full Stack Web Development - II",
+      "date": "2026-11-15",
+      "status": "Present",
+      "markedBy": "FAC101",
+      "createdAt": "2026-11-15T05:25:50.823Z"
+    },
+    {
+      "_id": "att_1794722228029",
+      "studentRollNo": "24107030",
+      "studentName": "Karan Kumar",
+      "subject": "Test Subject 572946",
+      "date": "2099-12-15",
+      "status": "Present",
+      "markedBy": "FAC101",
+      "createdAt": "2026-11-15T05:57:08.029Z"
+    }
+  ]
+}
